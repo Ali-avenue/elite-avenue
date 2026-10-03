@@ -65,5 +65,37 @@
     </div>
   </section>
 
+  <!-- 5. Best Sellers -->
+  <section class="products">
+    <h2>Best Sellers</h2>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <script>
+    const products = [
+      {name:"Vitamin C Brightening Serum", price:1699, old:2799, tint:"#e3edb8"},
+      {name:"Whitening Fade Spots Serum", price:999, old:1299, tint:"#e2d6ee"},
+      {name:"Hydrating & Calming Relief Serum", price:1499, old:2199, tint:"#f5e6d3"},
+      {name:"Dark Spot Correcting Glow Serum", price:999, old:1599, tint:"#d8ead9"},
+      {name:"Hyaluronic Acid Ampoule", price:1299, old:2199, tint:"#d6e6f2"},
+      {name:"Niacinamide Clear Skin Serum", price:899, old:1449, tint:"#f3dcdc"},
+      {name:"Rose Glow Face Serum", price:1299, old:1799, tint:"#f6d9e3"},
+      {name:"Anti-Aging Retinol Serum", price:1299, old:1949, tint:"#efe2c2"}
+    ];
+    const rs = n => "Rs." + n.toLocaleString("en-PK") + ".00";
+    document.getElementById("grid").innerHTML = products.map(p => {
+      const off = Math.round((1 - p.price / p.old) * 100);
+      return `<article class="card">
+        <div class="thumb" style="--t:${p.tint}">
+          <span class="off">-${off}%</span>
+          <button class="heart" aria-label="Add to wishlist">&#9825;</button>
+          <i></i>
+        </div>
+        <h3>${p.name}</h3>
+        <p class="price">${rs(p.price)} <s>${rs(p.old)}</s></p>
+      </article>`;
+    }).join("");
+  </script>
+
 </body>
 </html>
