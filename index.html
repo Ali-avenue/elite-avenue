@@ -10,7 +10,6 @@
 </head>
 <body>
 
-  <!-- 1. Announcement bar -->
   <div class="announce">
     <div class="announce-track">
       <span>Free Shipping On All Items</span><span class="dot">&#9670;</span>
@@ -24,15 +23,14 @@
     </div>
   </div>
 
-  <!-- 2. Header -->
   <header class="header">
     <a href="index.html" class="logo"><img src="logo.png" alt="Chand Chehra"></a>
     <nav class="menu">
       <a href="index.html">Home</a>
-      <a href="#">Hair care</a>
-      <a href="#">Makeup deals</a>
-      <a href="#">Serums</a>
-      <a href="#">Skin care</a>
+      <a href="#hair">Hair care</a>
+      <a href="#makeup">Makeup deals</a>
+      <a href="#serums">Serums</a>
+      <a href="#serums">Skin care</a>
     </nav>
     <div class="icons">
       <button aria-label="Search">&#9906;</button>
@@ -41,60 +39,132 @@
     </div>
   </header>
 
-  <!-- 3. Hero banner -->
   <section class="hero">
     <div class="bottle" aria-hidden="true"><i></i><u></u></div>
     <div class="hero-text">
       <h1>New Arrivals</h1>
       <p>Serums, skin care and makeup, delivered across Pakistan with cash on delivery.</p>
-      <a href="#" class="btn">Shop now</a>
+      <a href="#serums" class="btn">Shop now</a>
     </div>
     <div class="badge"><span>UP TO</span><strong>40%</strong><span>OFF</span></div>
   </section>
 
-  <!-- 4. Shop By Category -->
   <section class="cats">
     <h2>Shop By Category</h2>
     <div class="cat-row">
-      <a href="#" class="cat"><span class="circle" style="--bg:linear-gradient(135deg,#f3e3c3,#d9b46a)">&#129524;</span><b>Serums</b></a>
-      <a href="#" class="cat"><span class="circle" style="--bg:linear-gradient(135deg,#f7e6e0,#e5bfb2)">&#10024;</span><b>Skin Care</b></a>
-      <a href="#" class="cat"><span class="circle" style="--bg:linear-gradient(135deg,#e9dcc8,#b99468)">&#128135;</span><b>Hair Care</b></a>
+      <a href="#serums" class="cat"><span class="circle" style="--bg:linear-gradient(135deg,#f3e3c3,#d9b46a)">&#129524;</span><b>Serums</b></a>
+      <a href="#serums" class="cat"><span class="circle" style="--bg:linear-gradient(135deg,#f7e6e0,#e5bfb2)">&#10024;</span><b>Skin Care</b></a>
+      <a href="#hair" class="cat"><span class="circle" style="--bg:linear-gradient(135deg,#e9dcc8,#b99468)">&#128135;</span><b>Hair Care</b></a>
       <a href="#" class="cat"><span class="circle" style="--bg:linear-gradient(135deg,#e2e6ea,#aab4bf)">&#128241;</span><b>Accessories</b></a>
       <a href="#" class="cat"><span class="circle" style="--bg:linear-gradient(135deg,#f6d4d4,#d46a6a)">&#128090;</span><b>Ladies Clothing</b></a>
-      <a href="#" class="cat"><span class="circle" style="--bg:linear-gradient(135deg,#f3d9e3,#cf8fa8)">&#128132;</span><b>Makeup Deals</b></a>
+      <a href="#makeup" class="cat"><span class="circle" style="--bg:linear-gradient(135deg,#f3d9e3,#cf8fa8)">&#128132;</span><b>Makeup Deals</b></a>
     </div>
   </section>
 
-  <!-- 5. Best Sellers -->
-  <section class="products">
-    <h2>Best Sellers</h2>
-    <div class="grid" id="grid"></div>
+  <div class="sale-strip"><div class="sale-track" id="saleTrack"></div></div>
+
+  <section class="products" id="serums">
+    <h2>Serums</h2>
+    <div class="grid" id="g-serums"></div>
+    <div class="center"><a href="#" class="view-all">View All</a></div>
   </section>
 
+  <section class="products" id="hair">
+    <h2>Top view in this week!</h2>
+    <div class="tabs">
+      <button class="tab on" data-t="hair">Hair Care</button>
+      <button class="tab" data-t="skin">Skin Care</button>
+    </div>
+    <div class="grid" id="g-top"></div>
+  </section>
+
+  <section class="products" id="makeup">
+    <h2>Makeup Deals</h2>
+    <div class="grid" id="g-makeup"></div>
+  </section>
+
+  <section class="features">
+    <div><h3>Free Shipping</h3><p>Free shipping on all orders across Pakistan.</p></div>
+    <div><h3>Free Returns</h3><p>Free returns within 15 days, items must be undamaged.</p></div>
+    <div><h3>Support Online</h3><p>Message us anytime and we will help you quickly.</p></div>
+  </section>
+
+  <footer class="footer">
+    <div class="f-grid">
+      <div>
+        <h4>About us</h4>
+        <p><b>Chand Chehra</b> is an online store offering quality skincare, makeup and beauty products at affordable prices across Pakistan.</p>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <a href="index.html">Home</a><a href="#hair">Hair care</a><a href="#makeup">Makeup deals</a><a href="#serums">Serums</a><a href="#serums">Skin care</a>
+      </div>
+      <div>
+        <h4>Policies</h4>
+        <a href="#">Privacy Policy</a><a href="#">Refund Policy</a><a href="#">Shipping Policy</a><a href="#">Terms of Service</a>
+      </div>
+      <div>
+        <h4>Subscribe to get 10% OFF</h4>
+        <p>Subscribe for store updates and discounts.</p>
+        <div class="sub"><input type="email" placeholder="Enter your email..." aria-label="Email"><button aria-label="Subscribe">&#10148;</button></div>
+      </div>
+    </div>
+    <p class="copy">&copy; 2026 Chand Chehra.</p>
+  </footer>
+
   <script>
-    const products = [
-      {name:"Vitamin C Brightening Serum", price:1699, old:2799, tint:"#e3edb8"},
-      {name:"Whitening Fade Spots Serum", price:999, old:1299, tint:"#e2d6ee"},
-      {name:"Hydrating & Calming Relief Serum", price:1499, old:2199, tint:"#f5e6d3"},
-      {name:"Dark Spot Correcting Glow Serum", price:999, old:1599, tint:"#d8ead9"},
-      {name:"Hyaluronic Acid Ampoule", price:1299, old:2199, tint:"#d6e6f2"},
-      {name:"Niacinamide Clear Skin Serum", price:899, old:1449, tint:"#f3dcdc"},
-      {name:"Rose Glow Face Serum", price:1299, old:1799, tint:"#f6d9e3"},
-      {name:"Anti-Aging Retinol Serum", price:1299, old:1949, tint:"#efe2c2"}
-    ];
+    // Sample products: replace with real data later
+    const D = {
+      serums: [
+        ["Teashell 5% Niacinamide Brightening Serum",1299,1949,"#f1e4cf"],
+        ["Lilyve Grow Turn Exosome Ampoule",1299,2199,"#f3dcdc"],
+        ["Ray Time To Shine Underarm Serum",1299,1799,"#d8ead9"],
+        ["Fast Nail Fungus Treatment Serum",899,1449,"#e3edb8"],
+        ["Axis-Y Dark Spot Correcting Glow Serum",999,1599,"#d8ead9"],
+        ["AVA Fade Spots Serum",999,1299,"#e2d6ee"],
+        ["Dr. Althea 345 Relief Serum",1499,2199,"#f5e6d3"],
+        ["Pixi Vitamin C Brightening Serum",1699,2799,"#e3edb8"]
+      ],
+      hair: [
+        ["Remington Hair Dryer",2499,3999,"#e9dcc8"],
+        ["Hard Wax Beans Set",999,1599,"#d8ead9"],
+        ["Remington Wax Melting Machine",2999,4699,"#d6e6f2"],
+        ["Philips Hair Dryer",2199,3499,"#f6d9e3"]
+      ],
+      skin: [
+        ["Dr. Althea 345 Relief Serum",1499,2199,"#f5e6d3"],
+        ["AVA Fade Spots Serum",999,1299,"#e2d6ee"],
+        ["Pixi Vitamin C Brightening Serum",1699,2799,"#e3edb8"],
+        ["Axis-Y Dark Spot Correcting Glow Serum",999,1599,"#d8ead9"]
+      ],
+      makeup: [
+        ["12 Pcs Press On Nails Set",1499,2249,"#f6d9e3"],
+        ["9 Pcs Makeup Brush Set",1499,2499,"#e2d6ee"],
+        ["Multicolor Acrylic Artificial Nails Kit",1899,3099,"#d6e6f2"],
+        ["Miss Rose Liquid Concealer",1299,1749,"#efe2c2"]
+      ]
+    };
     const rs = n => "Rs." + n.toLocaleString("en-PK") + ".00";
-    document.getElementById("grid").innerHTML = products.map(p => {
-      const off = Math.round((1 - p.price / p.old) * 100);
-      return `<article class="card">
-        <div class="thumb" style="--t:${p.tint}">
-          <span class="off">-${off}%</span>
-          <button class="heart" aria-label="Add to wishlist">&#9825;</button>
-          <i></i>
-        </div>
-        <h3>${p.name}</h3>
-        <p class="price">${rs(p.price)} <s>${rs(p.old)}</s></p>
-      </article>`;
-    }).join("");
+    const card = p => {
+      const off = Math.round((1 - p[1] / p[2]) * 100);
+      return `<article class="card"><div class="thumb" style="--t:${p[3]}">
+        <span class="off">-${off}%</span>
+        <button class="heart" aria-label="Wishlist">&#9825;</button><i></i>
+        <button class="add">Add To Cart</button></div>
+        <h3>${p[0]} - Buy Online in Pakistan</h3>
+        <p class="price">${rs(p[1])} <s>${rs(p[2])}</s></p></article>`;
+    };
+    const show = (id, list) => document.getElementById(id).innerHTML = list.map(card).join("");
+    show("g-serums", D.serums.slice(0, 8));
+    show("g-top", D.hair);
+    show("g-makeup", D.makeup);
+    document.querySelectorAll(".tab").forEach(b => b.onclick = () => {
+      document.querySelectorAll(".tab").forEach(x => x.classList.remove("on"));
+      b.classList.add("on");
+      show("g-top", D[b.dataset.t]);
+    });
+    document.getElementById("saleTrack").innerHTML =
+      "<span>Sale Is Live!</span><em>SALE</em>".repeat(16);
   </script>
 
 </body>
