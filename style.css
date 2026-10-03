@@ -82,3 +82,22 @@ button{background:none;border:0;font:inherit;cursor:pointer;color:inherit}
   .cat{flex:0 0 130px;scroll-snap-align:start}
   .circle{font-size:44px}
 }
+/* Best Sellers */
+.products{padding:20px 40px 80px;max-width:1300px;margin:0 auto}
+.products h2{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(30px,4vw,44px);text-align:center;margin-bottom:36px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.card h3{font-size:15px;font-weight:600;text-transform:uppercase;line-height:1.35;margin:14px 0 6px}
+.price{font-size:16px;font-weight:600}
+.price s{color:#8a8a8a;font-weight:400;margin-left:6px}
+.thumb{position:relative;aspect-ratio:1;border-radius:14px;background:radial-gradient(circle at 50% 40%,#fff,var(--t));display:grid;place-items:center;overflow:hidden}
+.thumb i{width:46px;height:96px;border-radius:8px 8px 14px 14px;background:linear-gradient(90deg,#d6d6d6,#fff 50%,#cfcfcf);position:relative;margin-top:30px}
+.thumb i::before{content:"";position:absolute;top:-34px;left:11px;width:24px;height:36px;border-radius:5px 5px 2px 2px;background:linear-gradient(90deg,#b98466,#f0c7ad 50%,#a8735a)}
+.off{position:absolute;top:14px;left:14px;background:#7a1f2b;color:#fff;font-size:13px;padding:5px 10px;border-radius:5px}
+.heart{position:absolute;top:10px;right:12px;font-size:22px;line-height:1}
+.heart:hover{color:#b5332f}
+@media (max-width:820px){
+  .products{padding:10px 14px 60px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:16px}
+  .card h3{font-size:13px}
+  .price{font-size:14px}
+}
