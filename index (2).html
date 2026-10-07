@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chand Chehra - Skincare, Serums & Makeup in Pakistan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="store.css">
+</head>
+<body>
+  <div class="announce"><div class="announce-track" id="ann"></div></div>
+
+  <header class="header">
+    <a href="index.html" class="logo"><img src="logo.png" alt="Chand Chehra"></a>
+    <nav class="menu">
+      <a href="index.html">Home</a><a href="#hair">Hair care</a><a href="#makeup">Makeup deals</a><a href="#serums">Serums</a><a href="#hair">Skin care</a>
+    </nav>
+    <div class="icons">
+      <button aria-label="Search">&#9906;</button><button aria-label="Account">&#9786;</button>
+      <button aria-label="Cart" class="cart">&#128722;<b>0</b></button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="bottle" aria-hidden="true"><i></i><u></u></div>
+    <div class="hero-text">
+      <h1>New Arrivals</h1>
+      <p>Serums, skin care and makeup, delivered across Pakistan with cash on delivery.</p>
+      <a href="#serums" class="btn">Shop now</a>
+    </div>
+    <div class="badge"><span>UP TO</span><strong>40%</strong><span>OFF</span></div>
+  </section>
+
+  <section class="cats">
+    <h2>Shop By Category</h2>
+    <div class="cat-row" id="cats"></div>
+  </section>
+
+  <div class="sale-strip"><div class="sale-track" id="saleTrack"></div></div>
+
+  <section class="products" id="serums">
+    <h2>Serums</h2><div class="grid" id="g-serums"></div>
+    <div class="center"><a href="#" class="view-all">View All</a></div>
+  </section>
+
+  <section class="products" id="hair">
+    <h2>Top view in this week!</h2>
+    <div class="tabs">
+      <button class="tab on" data-t="Hair care">Hair Care</button>
+      <button class="tab" data-t="Skin care">Skin Care</button>
+    </div>
+    <div class="grid" id="g-top"></div>
+  </section>
+
+  <section class="products" id="makeup">
+    <h2>Makeup Deals</h2><div class="grid" id="g-makeup"></div>
+  </section>
+
+  <section class="features">
+    <div><h3>Free Shipping</h3><p>Free shipping on all orders across Pakistan.</p></div>
+    <div><h3>Free Returns</h3><p>Free returns within 15 days, items must be undamaged.</p></div>
+    <div><h3>Support Online</h3><p>Message us anytime and we will help you quickly.</p></div>
+  </section>
+
+  <footer class="footer">
+    <div class="f-grid">
+      <div><h4>About us</h4><p><b>Chand Chehra</b> is an online store offering quality skincare, makeup and beauty products at affordable prices across Pakistan.</p></div>
+      <div><h4>Menu</h4><a href="index.html">Home</a><a href="#hair">Hair care</a><a href="#makeup">Makeup deals</a><a href="#serums">Serums</a><a href="#hair">Skin care</a></div>
+      <div><h4>Policies</h4><a href="#">Privacy Policy</a><a href="#">Refund Policy</a><a href="#">Shipping Policy</a><a href="#">Terms of Service</a></div>
+      <div><h4>Subscribe to get 10% OFF</h4><p>Subscribe for store updates and discounts.</p>
+        <div class="sub"><input type="email" placeholder="Enter your email..." aria-label="Email"><button aria-label="Subscribe">&#10148;</button></div></div>
+    </div>
+    <p class="copy">&copy; 2026 Chand Chehra.</p>
+  </footer>
+
+  <script src="products.js"></script>
+  <script>
+    const img = (u, w) => u + (u.includes("?") ? "&" : "?") + "width=" + w;
+    const rs = n => "Rs." + n.toLocaleString("en-PK") + ".00";
+    const clean = t => t.replace(/\s*[–-]\s*Buy Online in Pakistan/i, "");
+    const by = (c, n) => PRODUCTS.filter(p => p.c === c && p.o).slice(0, n);
+    const card = p => `<a class="card" href="product.html?p=${p.h}">
+      <div class="thumb"><img src="${img(p.i[0], 500)}" alt="${clean(p.t)}" loading="lazy">
+        <span class="off">-${Math.round((1 - p.p / p.o) * 100)}%</span><span class="heart">&#9825;</span>
+        <span class="add">Add To Cart</span></div>
+      <h3>${clean(p.t)}</h3><p class="price">${rs(p.p)} <s>${rs(p.o)}</s></p></a>`;
+    const show = (id, list) => document.getElementById(id).innerHTML = list.map(card).join("");
+    show("g-serums", by("Serums", 8));
+    show("g-top", by("Hair care", 8));
+    show("g-makeup", by("Makeup deals", 8));
+    document.querySelectorAll(".tab").forEach(b => b.onclick = () => {
+      document.querySelectorAll(".tab").forEach(x => x.classList.remove("on"));
+      b.classList.add("on"); show("g-top", by(b.dataset.t, 8));
+    });
+    const CATS = [["Serums","Serums"],["Skin care","Skin Care"],["Hair care","Hair Care"],["Accessories","Accessories"],["Ladies Clothing","Ladies Clothing"],["Makeup deals","Makeup Deals"]];
+    document.getElementById("cats").innerHTML = CATS.map(([c, n]) => {
+      const p = by(c, 1)[0];
+      return `<a href="#" class="cat"><span class="circle" style="--img:url('${p ? img(p.i[0], 400) : ""}')"></span><b>${n}</b></a>`;
+    }).join("");
+    document.getElementById("saleTrack").innerHTML = "<span>Sale Is Live!</span><em>SALE</em>".repeat(16);
+    document.getElementById("ann").innerHTML = "<span>Free Shipping On All Items</span><span class='dot'>&#9670;</span><span>Sale Is Live!</span><span class='dot'>&#9670;</span>".repeat(8);
+  </script>
+</body>
+</html>
